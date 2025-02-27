@@ -1,0 +1,26 @@
+Database:
+  host: localhost
+  port: 5432
+  username: admin
+  password: password123
+  database_name: example_db
+Server:
+  server_name: main_server
+  ip_address: 192.168.1.1
+  port: 8080
+  protocol: https
+User:
+  user_id: '001'
+  username: johndoe
+  email: johndoe@example.com
+  role: admin
+Logging:
+  log_level: DEBUG
+  log_file_path: "/var/log/app.log"
+  max_log_size: 10MB
+  backup_count: 5
+Features:
+  feature_x_enabled: true
+  feature_y_enabled: false
+  max_connections: 100
+  timeout_seconds: 30

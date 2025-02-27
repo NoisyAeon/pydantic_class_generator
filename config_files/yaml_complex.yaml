@@ -1,0 +1,88 @@
+root:
+  level_one:
+    - id: 1
+      name: "Item One"
+      description: "A random description here."
+      details:
+        created_at: "2024-05-17T07:11:48Z"
+        metadata:
+          - key: "value"
+          - number: 12345
+          - boolean: true
+    - id: 2
+      name: "Item Two"
+      description: "Another random description."
+      details:
+        created_at: "2024-05-17T07:15:22Z"
+        metadata:
+          - key: "different value"
+          - number: 67890
+          - boolean: false
+  level_two:
+    complex_list:
+      - item: "First in list"
+        properties:
+          - property_one: "Value one"
+          - property_two: "Value two"
+      - item: "Second in list"
+        properties:
+          - property_one: "Another value one"
+          - property_two: "Another value two"
+    another_section:
+      key1: "Value1"
+      key2: "Value2"
+      nested_section:
+        sub_key1: [ 1, 2, 3, 4 ]
+        sub_key2: [ "a", "b", "c", "d" ]
+  level_three:
+    a_dictionary:
+      key_a: "Value A"
+      key_b: "Value B"
+      key_c: "Value C"
+    another_dictionary:
+      key_x: "Value X"
+      key_y: "Value Y"
+      key_z: "Value Z"
+    deeper_nesting:
+      level_four:
+        - id: 3
+          name: "Item Three"
+          attributes:
+            size: "Large"
+            color: "Blue"
+            quantity: 10
+          additional_details:
+            manufacturer: "Random Corp"
+            sku: "XYZ123"
+        - id: 4
+          name: "Item Four"
+          attributes:
+            size: "Small"
+            color: "Red"
+            quantity: 5
+          additional_details:
+            manufacturer: "Example Inc"
+            sku: "ABC987"
+  final_level:
+    - final_list_item_one:
+        attributes:
+          - attr1: "Final value 1"
+          - attr2: "Final value 2"
+    - final_list_item_two:
+        attributes:
+          - attr1: "Final value A"
+          - attr2: "Final value B"
+        even_more_nested:
+          level_five:
+            section_one:
+              key_1: "Nested Value 1"
+              key_2: "Nested Value 2"
+            section_two:
+              key_3: "Nested Value 3"
+              key_4: "Nested Value 4"
+              deeper_section:
+                sub_level_six:
+                  - item: "Deeply Nested Item 1"
+                    properties: { prop1: "Deep Value 1", prop2: "Deep Value 2" }
+                  - item: "Deeply Nested Item 2"
+                    properties: { prop1: "Deep Value A", prop2: "Deep Value B" }
