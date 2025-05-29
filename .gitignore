@@ -1,3 +1,6 @@
-.git/*
-.idea/*
-.venv/*
+.git
+.idea
+.venv
+pydantic_class_generator.egg-info
+
+pydantic_class_generator/demo
