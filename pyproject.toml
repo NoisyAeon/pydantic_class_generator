@@ -1,0 +1,50 @@
+[project]
+name = "pydantic_class_generator"
+description = "Generates the source code for pydantic data classes from configuration files."
+dynamic = ['version']
+authors = [
+    { name = "Johannes-Sebastian See" }
+]
+maintainers = [
+    { name = "Johannes-Sebastian See"},
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "pydantic>=2.7.1",
+    "pyyaml>=6.0.2"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest==7.4.1",
+    "pytest-html==3.2.0",
+    "flake8==6.1.0",
+    "pylint==3.0.1",
+    "mccabe==0.7.0",
+]
+doc = [
+    "pytest==7.4.1",  # otherwise the documentation of tests will fail
+    "sphinx==7.2.6",
+    "sphinx-argparse==0.4.0",
+    "releases==2.1.1",
+]
+
+dev = [
+    "tox",
+    "pydantic_class_generator[test,doc]",
+]
+
+[project.scripts]
+utt_remote_gateway = "remote_gateway.main:start_remote_gateway"
+
+[tool.setuptools.dynamic]
+version = { attr = "pydantic_class_generator.VERSION" }
+
+[tool.setuptools.packages.find]
+where = ["."]  # list of folders that contain the packages (["."] by default)
+include = ["pydantic_class_generator*"]  # package names should match these glob patterns (["*"] by default)
