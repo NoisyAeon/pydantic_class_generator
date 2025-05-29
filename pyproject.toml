@@ -39,9 +39,6 @@ dev = [
     "pydantic_class_generator[test,doc]",
 ]
 
-[project.scripts]
-utt_remote_gateway = "remote_gateway.main:start_remote_gateway"
-
 [tool.setuptools.dynamic]
 version = { attr = "pydantic_class_generator.VERSION" }
 

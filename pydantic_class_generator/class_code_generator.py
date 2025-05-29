@@ -195,6 +195,12 @@ def configuration_file_to_dict(path: Union[str, Path], encoding: str = 'utf-8') 
 
 
 def save_to_disk(data: BaseModel, path: Union[str, Path]) -> None:
+    """
+    Takes a BaseModel object and saves the content to a config file. The file type is derived from the given path.
+
+    :param BaseModel data: The BaseModel object containing all the data
+    :param str |Path path: The path to the config file
+    """
     if isinstance(path, str):
         path = Path(path)
 
@@ -212,6 +218,9 @@ def save_to_disk(data: BaseModel, path: Union[str, Path]) -> None:
 
 
 def _save_ini_file(data: BaseModel, path: Path) -> None:
+    """
+    Saves the content of a BaseModel to an .ini file
+    """
     dump = data.model_dump(by_alias=True)
     config_parser = ConfigParser()
     config_parser.optionxform = str
@@ -222,10 +231,16 @@ def _save_ini_file(data: BaseModel, path: Path) -> None:
 
 
 def _save_json_file(data: BaseModel, path: Path) -> None:
+    """
+    Saves the content of a BaseModel to an .ini file
+    """
     with open(path, "w", encoding="utf-8") as file:
         file.write(data.model_dump_json(indent=2))
 
 
 def _save_yaml_file(data: BaseModel, path: Path) -> None:
+    """
+    Saves the content of a BaseModel to an .ini file
+    """
     with open(path, "w", encoding="utf-8") as file:
         file.write(yaml.dump(data.model_dump(by_alias=True), default_flow_style=False))
