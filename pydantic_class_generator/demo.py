@@ -7,6 +7,9 @@ DEMO_DIR = Path(__file__).parent / "demo"
 
 
 def generate_files():
+    """
+    Reads the content of configuration files and creates Python files with the BaseModel classes from the data
+    """
     # INI File
     generate_class_code(
         input_file=CONFIG_DIR / "ini_connection.ini",
@@ -33,14 +36,34 @@ def generate_files():
 
 
 def load_content():
+    """
+    Creates BaseModel Objects and fills the with the data from configuration files
+    """
     from demo.connection_from_ini import load_ini_connection_from_file
     ini_connection = load_ini_connection_from_file(CONFIG_DIR / "ini_connection.ini")
 
-    print(ini_connection)
+    print(f"ini_connection:\n{ini_connection.model_dump_json(indent=4)}\n\n")
 
+    from demo.connection_from_json import load_json_connection_from_file
+    json_connection = load_json_connection_from_file(CONFIG_DIR / "json_connection.json")
+
+    print(f"json_connection:\n{json_connection.model_dump_json(indent=4)}\n\n")
+
+    from demo.connection_from_yaml import load_yaml_connection_from_file
+    yaml_connection = load_yaml_connection_from_file(CONFIG_DIR / "yaml_connection.yaml")
+
+    print(f"yaml_connection:\n{yaml_connection.model_dump_json(indent=4)}")
 
 def save_content():
-    pass
+    """
+    Creates configuration files from the given BaseModel objects
+    """
+    from demo.connection_from_ini import load_ini_connection_from_file
+    ini_connection = load_ini_connection_from_file(CONFIG_DIR / "ini_connection.ini")
+
+    save_to_disk(data=ini_connection, path=DEMO_DIR/ "generated_config_files" / "config.ini")
+    save_to_disk(data=ini_connection, path=DEMO_DIR / "generated_config_files" / "config.json")
+    save_to_disk(data=ini_connection, path=DEMO_DIR / "generated_config_files" / "config.yaml")
 
 
 if __name__ == '__main__':
